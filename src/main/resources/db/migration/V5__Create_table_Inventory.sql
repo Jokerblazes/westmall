@@ -1,5 +1,3 @@
-
-
 CREATE TABLE `Inventory` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `count` int(11) NOT NULL,
