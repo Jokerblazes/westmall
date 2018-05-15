@@ -20,8 +20,8 @@ public class Order {
     private String paidTime;
     private String withdrawnTime;
 
-    @OneToMany(fetch = FetchType.EAGER )
-    @JoinColumn(table = "Order_Product",referencedColumnName = "order_id",name = "productId")
+    @ManyToMany(fetch = FetchType.EAGER )
+    @JoinColumn(table = "Order_Product",referencedColumnName = "orderId",name = "id")
     private List<Product> products;
     private String status;
     public String getStatus() {

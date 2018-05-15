@@ -1,5 +1,8 @@
 package com.beijing.westmall.entity;
 
+
+import org.hibernate.annotations.Cascade;
+
 import javax.persistence.*;
 import java.math.BigDecimal;
 
@@ -16,9 +19,11 @@ public class Product {
     private String name;
     private String description;
     private BigDecimal price;
+
+    @Transient
     private int purchaseCount;
-    @OneToOne(fetch = FetchType.EAGER )
-    @JoinColumn(name = "productId")
+    @ManyToOne(targetEntity = Inventory.class,cascade = CascadeType.ALL)
+    @JoinColumn(name = "inventoryId", referencedColumnName = "id")
     private Inventory inventory;
 
     public Long getId() {
@@ -45,6 +50,7 @@ public class Product {
         this.description = description;
     }
 
+
     public BigDecimal getPrice() {
         return price;
     }
@@ -61,24 +67,13 @@ public class Product {
         this.purchaseCount = purchaseCount;
     }
 
+
     public Inventory getInventory() {
         return inventory;
     }
 
     public void setInventory(Inventory inventory) {
         this.inventory = inventory;
-    }
-
-    @Override
-    public String toString() {
-        return "Product{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", description='" + description + '\'' +
-                ", price=" + price +
-                ", purchaseCount=" + purchaseCount +
-                ", inventory=" + inventory +
-                '}';
     }
 }
 

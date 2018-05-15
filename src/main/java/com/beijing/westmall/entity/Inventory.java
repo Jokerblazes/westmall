@@ -1,15 +1,23 @@
 package com.beijing.westmall.entity;
 
 
+
+import javax.persistence.*;
+
 /**
  * @Author Joker
  * @Description
  * @Date Create in 下午2:31 2018/5/14
  */
+@Entity
+@Table(name = "Inventory")
 public class Inventory {
+    @Id
+    @GeneratedValue
     private Long id;
     private int count;
     private int lockedCount;
+
 
     public Long getId() {
         return id;
@@ -34,6 +42,7 @@ public class Inventory {
     public void setLockedCount(int lockedCount) {
         this.lockedCount = lockedCount;
     }
+
 
     @Override
     public String toString() {
