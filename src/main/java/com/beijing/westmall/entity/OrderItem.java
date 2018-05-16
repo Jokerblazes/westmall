@@ -22,6 +22,7 @@ public class OrderItem {
     @JoinColumn(name = "productId",referencedColumnName = "id")
     @JsonUnwrapped
     private Product product;
+    private int orderId;
     private int purchaseCount;
 
     public Product getProduct() {
@@ -46,5 +47,13 @@ public class OrderItem {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public int getOrderId() {
+        return orderId;
+    }
+
+    public void setOrderId(int orderId) {
+        this.orderId = orderId;
     }
 }

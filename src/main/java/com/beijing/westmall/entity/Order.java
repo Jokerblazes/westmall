@@ -1,5 +1,7 @@
 package com.beijing.westmall.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.List;
@@ -20,8 +22,10 @@ public class Order {
     private String finishTime;
     private String paidTime;
     private String withdrawnTime;
+    @JsonIgnore
+    private Long userId;
 
-    @OneToMany(fetch = FetchType.EAGER )
+    @OneToMany(targetEntity = OrderItem.class,cascade = CascadeType.ALL)
     @JoinColumn(name = "orderId",referencedColumnName = "id")
 //    @JoinTable(
 //            name="Order_Product",                    //中间表的名字
@@ -91,5 +95,13 @@ public class Order {
 
     public void setOrderItems(List<OrderItem> orderItems) {
         this.orderItems = orderItems;
+    }
+
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 }
