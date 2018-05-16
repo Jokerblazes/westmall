@@ -5,5 +5,6 @@ CREATE TABLE `Order` (
   `finishTime` datetime NOT NULL,
   `paidTime` datetime NOT NULL,
   `withdrawnTime` datetime NOT NULL,
+  `status` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
