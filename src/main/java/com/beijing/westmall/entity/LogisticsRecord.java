@@ -23,6 +23,16 @@ public class LogisticsRecord {
 
     private String deliveryMan;
 
+    private Long orderId;
+
+    public Long getOrderId() {
+        return orderId;
+    }
+
+    public void setOrderId(Long orderId) {
+        this.orderId = orderId;
+    }
+
     public Long getId() {
         return id;
     }
@@ -64,14 +74,4 @@ public class LogisticsRecord {
     }
 
 
-    @Override
-    public String toString() {
-        return "Inventory{" +
-                "id=" + id +
-                ", logisticsStatus='" + logisticsStatus + '\'' +
-                ", outboundTime='" + outboundTime + '\'' +
-                ", signedTime='" + signedTime + '\'' +
-                ", deliveryMan='" + deliveryMan + '\'' +
-                '}';
-    }
 }
