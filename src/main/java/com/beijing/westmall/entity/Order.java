@@ -10,6 +10,7 @@ import java.util.List;
  * @Date Create in 下午2:30 2018/5/14
  */
 @Entity
+@Table(name = "`Order`")
 public class Order {
     @Id
     @GeneratedValue
@@ -20,9 +21,13 @@ public class Order {
     private String paidTime;
     private String withdrawnTime;
 
-    @ManyToMany(fetch = FetchType.EAGER )
-    @JoinColumn(table = "Order_Product",referencedColumnName = "orderId",name = "id")
-    private List<Product> products;
+    @OneToMany(fetch = FetchType.EAGER )
+    @JoinColumn(name = "orderId",referencedColumnName = "id")
+//    @JoinTable(
+//            name="Order_Product",                    //中间表的名字
+//            joinColumns= {@JoinColumn(name="orderId")},        //外键的字段
+//            inverseJoinColumns= {@JoinColumn(name="productId")})    //反转控制字段的名字
+    private List<OrderItem> orderItems;
     private String status;
     public String getStatus() {
         return status;
@@ -80,25 +85,11 @@ public class Order {
         this.withdrawnTime = withdrawnTime;
     }
 
-    public List<Product> getProducts() {
-        return products;
+    public List<OrderItem> getOrderItems() {
+        return orderItems;
     }
 
-    public void setProducts(List<Product> products) {
-        this.products = products;
-    }
-
-    @Override
-    public String toString() {
-        return "Order{" +
-                "id=" + id +
-                ", totalPrice=" + totalPrice +
-                ", createTime='" + createTime + '\'' +
-                ", finishTime='" + finishTime + '\'' +
-                ", paidTime='" + paidTime + '\'' +
-                ", withdrawnTime='" + withdrawnTime + '\'' +
-                ", products=" + products +
-                ", status='" + status + '\'' +
-                '}';
+    public void setOrderItems(List<OrderItem> orderItems) {
+        this.orderItems = orderItems;
     }
 }

@@ -20,8 +20,6 @@ public class Product {
     private String description;
     private BigDecimal price;
 
-    @Transient
-    private int purchaseCount;
     @ManyToOne(targetEntity = Inventory.class,cascade = CascadeType.ALL)
     @JoinColumn(name = "inventoryId", referencedColumnName = "id")
     private Inventory inventory;
@@ -58,15 +56,6 @@ public class Product {
     public void setPrice(BigDecimal price) {
         this.price = price;
     }
-
-    public int getPurchaseCount() {
-        return purchaseCount;
-    }
-
-    public void setPurchaseCount(int purchaseCount) {
-        this.purchaseCount = purchaseCount;
-    }
-
 
     public Inventory getInventory() {
         return inventory;
