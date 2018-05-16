@@ -2,7 +2,10 @@ package com.beijing.westmall.repository;
 
 import com.beijing.westmall.entity.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 /**
  * @Author Joker
@@ -12,4 +15,8 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ProductRepository extends JpaRepository<Product, Long> {
+
+    public List<Product> findProductsByName(@Param("name") String name);
+
+    public List<Product> findProductsByNameContainsAndDescriptionContains(@Param("name") String name,@Param("description") String description);
 }

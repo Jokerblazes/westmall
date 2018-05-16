@@ -12,6 +12,7 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 import static org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase.Replace.NONE;
 import static org.junit.Assert.*;
@@ -52,6 +53,22 @@ public class ProductRepositoryTest {
         Product product = productRepository.findOne((long) 1);
         assertNotNull(product);
         assertNotNull(product.getInventory());
+    }
+
+    @Test
+    public void testFindProductsByName() {
+        List<Product> products = productRepository.findProductsByName("test1");
+        assertNotNull(products);
+        assertEquals(products.size(),1);
+        assertEquals(products.get(0).getName(),"test1");
+    }
+
+    @Test
+    public void testFindProductsByNameLikeAndDescriptionLike() {
+        List<Product> products = productRepository.findProductsByNameContainsAndDescriptionContains("t", "t");
+        assertNotNull(products);
+        assertEquals(products.size(),1);
+        assertEquals(products.get(0).getName(),"test1");
     }
 
 
