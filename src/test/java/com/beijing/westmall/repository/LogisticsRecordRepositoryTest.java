@@ -36,7 +36,7 @@ public class LogisticsRecordRepositoryTest {
 
     @Test
     public void testFindLogisticsRecordByOrderId() {
-        LogisticsRecord logisticsRecord = logisticsRecordRepository.findLogisticsRecordByOrderId((long) 1);
+        LogisticsRecord logisticsRecord = logisticsRecordRepository.findLogisticsRecordByIdAndOrderId((long) 1,(long) 1);
         assertNotNull(logisticsRecord);
         assertEquals(logisticsRecord.getId(),Long.valueOf(1));
     }

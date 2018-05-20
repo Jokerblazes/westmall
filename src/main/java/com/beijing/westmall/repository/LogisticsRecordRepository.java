@@ -11,5 +11,5 @@ import org.springframework.data.repository.query.Param;
  */
 public interface LogisticsRecordRepository extends JpaRepository<LogisticsRecord,Long>{
 
-    public LogisticsRecord findLogisticsRecordByOrderId(@Param("orderId") Long orderId);
+    public LogisticsRecord findLogisticsRecordByIdAndOrderId(@Param("orderId") Long id,@Param("orderId") Long orderId);
 }
