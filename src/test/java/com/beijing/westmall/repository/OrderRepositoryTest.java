@@ -35,7 +35,7 @@ public class OrderRepositoryTest {
     public void setUp() throws Exception {
         //本地启动mysql，创建employee_db数据库
         Flyway flyway = new Flyway();
-        flyway.setDataSource("jdbc:mysql://localhost:3306/westmall","root","123456");
+        flyway.setDataSource("jdbc:mysql://192.168.1.100:3307/westmall","root","123456");
         flyway.clean();
         flyway.migrate();
     }
