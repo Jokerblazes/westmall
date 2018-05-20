@@ -2,7 +2,7 @@ server:
   port: 8083
 spring:
   datasource:
-    url: jdbc:mysql://a16313db.ngrok.io:3306/westmall
+    url: jdbc:mysql://192.168.1.100:3307/westmall
     username: root
     password: 123456
     driver-class-name: com.mysql.jdbc.Driver
