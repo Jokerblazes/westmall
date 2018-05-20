@@ -1,6 +1,9 @@
 package com.beijing.westmall.entity;
 
+import com.beijing.westmall.common.Utils;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonNaming;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -22,15 +25,20 @@ public class Order {
     private String finishTime;
     private String paidTime;
     private String withdrawnTime;
-    @JsonIgnore
     private Long userId;
 
+    public static Order createOrder(List<OrderItem> orderItems) {
+        Order order = new Order();
+        order.setCreateTime(Utils.createNowTime());
+        order.setStatus("unPaid");
+        order.setOrderItems(orderItems);
+        order.setUserId((long) 1);
+        order.calcluteTotalMoney();
+        return order;
+    }
     @OneToMany(targetEntity = OrderItem.class,cascade = CascadeType.ALL)
     @JoinColumn(name = "orderId",referencedColumnName = "id")
-//    @JoinTable(
-//            name="Order_Product",                    //中间表的名字
-//            joinColumns= {@JoinColumn(name="orderId")},        //外键的字段
-//            inverseJoinColumns= {@JoinColumn(name="productId")})    //反转控制字段的名字
+    @JsonProperty("purchaseItemList")
     private List<OrderItem> orderItems;
     private String status;
     public String getStatus() {
@@ -103,5 +111,15 @@ public class Order {
 
     public void setUserId(Long userId) {
         this.userId = userId;
+    }
+
+    public void calcluteTotalMoney() {
+        totalPrice = new BigDecimal(0);
+        for (OrderItem orderItem :
+                orderItems) {
+            BigDecimal multiple = new BigDecimal(orderItem.getPurchaseCount());
+            BigDecimal multiply = orderItem.getProduct().getPrice().multiply(multiple);
+            totalPrice = totalPrice.add(multiply);
+        }
     }
 }

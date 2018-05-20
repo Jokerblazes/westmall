@@ -1,7 +1,6 @@
 package com.beijing.westmall.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonUnwrapped;
+import com.fasterxml.jackson.annotation.*;
 
 import javax.persistence.*;
 
@@ -22,7 +21,11 @@ public class OrderItem {
     @JoinColumn(name = "productId",referencedColumnName = "id")
     @JsonUnwrapped
     private Product product;
+    @JsonIgnore
     private int orderId;
+    @Transient
+    @JsonIgnore
+    private Long productId;
     private int purchaseCount;
 
     public Product getProduct() {
@@ -31,6 +34,7 @@ public class OrderItem {
 
     public void setProduct(Product product) {
         this.product = product;
+        this.product.setId(this.productId);
     }
 
     public int getPurchaseCount() {
@@ -56,4 +60,13 @@ public class OrderItem {
     public void setOrderId(int orderId) {
         this.orderId = orderId;
     }
+
+    public Long getProductId() {
+        return productId;
+    }
+
+    public void setProductId(Long productId) {
+        this.productId = productId;
+    }
+
 }

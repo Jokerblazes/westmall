@@ -1,5 +1,7 @@
 package com.beijing.westmall.entity;
 
+import com.beijing.westmall.common.Utils;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -24,6 +26,7 @@ public class LogisticsRecord {
     private String deliveryMan;
 
     private Long orderId;
+
 
     public Long getOrderId() {
         return orderId;
@@ -73,5 +76,19 @@ public class LogisticsRecord {
         this.deliveryMan = deliveryMan;
     }
 
+    public void setSignedOrOutboundTime() {
+        setOutboundTimeIfStatusIsShipping();
+        setSignedTimeIfStatusIsSigned();
+    }
+
+    private void setSignedTimeIfStatusIsSigned() {
+        if (logisticsStatus.equals("signed"))
+            signedTime = Utils.createNowTime();
+    }
+
+    private void setOutboundTimeIfStatusIsShipping() {
+        if (logisticsStatus.equals("shipping"))
+            outboundTime = Utils.createNowTime();
+    }
 
 }
