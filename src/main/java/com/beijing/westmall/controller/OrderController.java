@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
 import java.math.BigDecimal;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -33,10 +34,17 @@ public class OrderController {
 
     @RequestMapping(method = RequestMethod.POST)
     public ResponseEntity addOrder(@RequestBody List<OrderItem> orderItems) {
+        List<OrderItem> items = new ArrayList<>();
         for (OrderItem orderItem :
-                orderItems)
-            orderItem.setProduct(productRepository.findOne(orderItem.getProductId()));
-        Order order = Order.createOrder(orderItems);
+                orderItems) {
+            Product old = productRepository.findOne(orderItem.getProductId());
+            if (old != null) {
+                orderItem.setProduct(old);
+                items.add(orderItem);
+            }
+
+        }
+        Order order = Order.createOrder(items);
         Order actualOrder = orderRepository.save(order);
         HttpHeaders httpHeaders = new HttpHeaders();
         httpHeaders.add("location", createLocation(actualOrder));

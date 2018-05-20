@@ -22,9 +22,8 @@ public class OrderItem {
     @JsonUnwrapped
     private Product product;
     @JsonIgnore
-    private int orderId;
+    private long orderId;
     @Transient
-    @JsonIgnore
     private Long productId;
     private int purchaseCount;
 
@@ -53,11 +52,11 @@ public class OrderItem {
         this.id = id;
     }
 
-    public int getOrderId() {
+    public long getOrderId() {
         return orderId;
     }
 
-    public void setOrderId(int orderId) {
+    public void setOrderId(long orderId) {
         this.orderId = orderId;
     }
 

@@ -54,7 +54,6 @@ public class OrderRepositoryTest {
         assertNotNull(actual.getId());
         assertNotNull(actual.getOrderItems());
         assertEquals(actual.getOrderItems().size(),1);
-        assertEquals(actual.getOrderItems().get(0).getId(),actual.getId());
     }
 
     private Order createOrder() {
@@ -62,7 +61,7 @@ public class OrderRepositoryTest {
         OrderItem orderItem = new OrderItem();
         orderItem.setPurchaseCount(1);
         Product product = new Product();
-        product.setId((long) 1);
+        orderItem.setProductId((long) 1);
         orderItem.setProduct(product);
         orderItems.add(orderItem);
         Order order = new Order();
