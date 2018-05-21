@@ -183,7 +183,6 @@
 							"IP": [
 								"{{IP}}"
 							],
-							"port": "{{port}}",
 							"path": [
 								"products"
 							],
@@ -237,7 +236,6 @@
 							"IP": [
 								"{{IP}}"
 							],
-							"port": "{{port}}",
 							"path": [
 								"products"
 							],
@@ -322,7 +320,6 @@
 							"IP": [
 								"{{IP}}"
 							],
-							"port": "{{port}}",
 							"path": [
 								"orders",
 								"1"
@@ -367,7 +364,6 @@
 							"IP": [
 								"{{IP}}"
 							],
-							"port": "{{port}}",
 							"path": [
 								"orders",
 								"5"
@@ -467,7 +463,6 @@
 							"IP": [
 								"{{IP}}"
 							],
-							"port": "{{port}}",
 							"path": [
 								"orders"
 							],
@@ -560,7 +555,6 @@
 							"IP": [
 								"{{IP}}"
 							],
-							"port": "{{port}}",
 							"path": [
 								"logisticsRecords",
 								"1",
@@ -607,7 +601,6 @@
 							"IP": [
 								"{{IP}}"
 							],
-							"port": "{{port}}",
 							"path": [
 								"logisticsRecords",
 								"1",
