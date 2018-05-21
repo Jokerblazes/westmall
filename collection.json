@@ -180,9 +180,6 @@
 						"url": {
 							"raw": "http://{{IP}}/products?name=方便面",
 							"protocol": "http",
-							"IP": [
-								"{{IP}}"
-							],
 							"path": [
 								"products"
 							],
@@ -233,9 +230,6 @@
 						"url": {
 							"raw": "http://{{IP}}/products?name=方便面&description=师",
 							"protocol": "http",
-							"IP": [
-								"{{IP}}"
-							],
 							"path": [
 								"products"
 							],
@@ -317,9 +311,6 @@
 						"url": {
 							"raw": "http://{{IP}}/orders/1?orderStatus=paid",
 							"protocol": "http",
-							"IP": [
-								"{{IP}}"
-							],
 							"path": [
 								"orders",
 								"1"
@@ -361,9 +352,6 @@
 						"url": {
 							"raw": "http://{{IP}}/orders/5?orderStatus=withdrawn",
 							"protocol": "http",
-							"IP": [
-								"{{IP}}"
-							],
 							"path": [
 								"orders",
 								"5"
@@ -460,9 +448,6 @@
 						"url": {
 							"raw": "http://{{IP}}/orders?userId=1",
 							"protocol": "http",
-							"IP": [
-								"{{IP}}"
-							],
 							"path": [
 								"orders"
 							],
@@ -552,9 +537,6 @@
 						"url": {
 							"raw": "http://{{IP}}/logisticsRecords/1/orders/1?logisticsStatus=shipping",
 							"protocol": "http",
-							"IP": [
-								"{{IP}}"
-							],
 							"path": [
 								"logisticsRecords",
 								"1",
@@ -598,9 +580,6 @@
 						"url": {
 							"raw": "http://{{IP}}/logisticsRecords/1/orders/1?logisticsStatus=signed",
 							"protocol": "http",
-							"IP": [
-								"{{IP}}"
-							],
 							"path": [
 								"logisticsRecords",
 								"1",
