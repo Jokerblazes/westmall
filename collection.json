@@ -28,7 +28,7 @@
 						}
 					],
 					"request": {
-						"url": "http://c2221e26.ngrok.io/products",
+						"url": "http://{{IP}}:{{port}}/products",
 						"method": "POST",
 						"header": [
 							{
@@ -59,7 +59,7 @@
 						}
 					],
 					"request": {
-						"url": "http://{{IP}}/products/1",
+						"url": "http://{{IP}}:{{port}}/products/1",
 						"method": "PUT",
 						"header": [
 							{
@@ -107,7 +107,7 @@
 						}
 					],
 					"request": {
-						"url": "http://{{IP}}/products/1",
+						"url": "http://{{IP}}:{{port}}/products/1",
 						"method": "GET",
 						"header": [],
 						"body": {},
@@ -142,7 +142,7 @@
 						}
 					],
 					"request": {
-						"url": "http://{{IP}}/products",
+						"url": "http://{{IP}}:{{port}}/products",
 						"method": "GET",
 						"header": [],
 						"body": {},
@@ -178,7 +178,7 @@
 					],
 					"request": {
 						"url": {
-							"raw": "http://{{IP}}/products?name=方便面",
+							"raw": "http://{{IP}}:{{port}}/products?name=方便面",
 							"protocol": "http",
 							"IP": [
 								"{{IP}}"
@@ -232,7 +232,7 @@
 					],
 					"request": {
 						"url": {
-							"raw": "http://{{IP}}/products?name=方便面&description=师",
+							"raw": "http://{{IP}}:{{port}}/products?name=方便面&description=师",
 							"protocol": "http",
 							"IP": [
 								"{{IP}}"
@@ -285,7 +285,7 @@
 						}
 					],
 					"request": {
-						"url": "http://{{IP}}/orders",
+						"url": "http://{{IP}}:{{port}}/orders",
 						"method": "POST",
 						"header": [
 							{
@@ -317,7 +317,7 @@
 					],
 					"request": {
 						"url": {
-							"raw": "http://{{IP}}/orders/1?orderStatus=paid",
+							"raw": "http://{{IP}}:{{port}}/orders/1?orderStatus=paid",
 							"protocol": "http",
 							"IP": [
 								"{{IP}}"
@@ -362,7 +362,7 @@
 					],
 					"request": {
 						"url": {
-							"raw": "http://{{IP}}/orders/5?orderStatus=withdrawn",
+							"raw": "http://{{IP}}:{{port}}/orders/5?orderStatus=withdrawn",
 							"protocol": "http",
 							"IP": [
 								"{{IP}}"
@@ -424,7 +424,7 @@
 						}
 					],
 					"request": {
-						"url": "http://{{IP}}/orders/1",
+						"url": "http://{{IP}}:{{port}}/orders/1",
 						"method": "GET",
 						"header": [],
 						"body": {
@@ -462,7 +462,7 @@
 					],
 					"request": {
 						"url": {
-							"raw": "http://{{IP}}/orders?userId=1",
+							"raw": "http://{{IP}}:{{port}}/orders?userId=1",
 							"protocol": "http",
 							"IP": [
 								"{{IP}}"
@@ -529,7 +529,7 @@
 						}
 					],
 					"request": {
-						"url": "http://{{IP}}/logisticsRecords/1",
+						"url": "http://{{IP}}:{{port}}/logisticsRecords/1",
 						"method": "GET",
 						"header": [],
 						"body": {
@@ -555,7 +555,7 @@
 					],
 					"request": {
 						"url": {
-							"raw": "http://{{IP}}/logisticsRecords/1/orders/1?logisticsStatus=shipping",
+							"raw": "http://{{IP}}:{{port}}/logisticsRecords/1/orders/1?logisticsStatus=shipping",
 							"protocol": "http",
 							"IP": [
 								"{{IP}}"
@@ -602,7 +602,7 @@
 					],
 					"request": {
 						"url": {
-							"raw": "http://{{IP}}/logisticsRecords/1/orders/1?logisticsStatus=signed",
+							"raw": "http://{{IP}}:{{port}}/logisticsRecords/1/orders/1?logisticsStatus=signed",
 							"protocol": "http",
 							"IP": [
 								"{{IP}}"
@@ -654,7 +654,7 @@
 						}
 					],
 					"request": {
-						"url": "http://{{IP}}/inventories/1",
+						"url": "http://{{IP}}:{{port}}/inventories/1",
 						"method": "PUT",
 						"header": [
 							{
