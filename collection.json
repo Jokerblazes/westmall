@@ -28,7 +28,7 @@
 						}
 					],
 					"request": {
-						"url": "http://{{IP}}/products",
+						"url": "http://c2221e26.ngrok.io/products",
 						"method": "POST",
 						"header": [
 							{
